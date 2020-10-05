@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "name": "Noam",
+      "city": "Haifa",
+      "phone": "0543356968",
+      "email": "noam@gmail.com"
+    },
+    {
+      "name": "Omer",
+      "city": "Tel Aviv",
+      "phone": "0527589547",
+      "email": "omer@gmail.com"
+    },
+    {
+      "name": "Liran",
+      "city": "Beer Sheva",
+      "phone": "0536986952",
+      "email": "liran@gmail.com"
+    },
+    {
+      "name": "Rita",
+      "city": "Rosh HaAiyn",
+      "phone": "0586952458",
+      "email": "rita@gmail.com"
+    }
+  ]
+}

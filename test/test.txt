@@ -1,0 +1,30 @@
+CREATE USER 'jbh_user'@'localhost' IDENTIFIED BY '123456';
+
+SELECT * FROM mysql.user;
+
+GRANT ALL PRIVILEGES ON jbh_shop.* TO 'jbh_user'@'localhost';
+
+FLUSH PRIVILEGES;
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your password';
+
+CREATE TABLE test.servers(
+id INT auto_increment,
+name char(70) NOT NULL,
+IP char(70) NOT NULL,
+hosting_company INT NOT NULL,
+status BOOLEAN NOT NULL,
+created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+PRIMARY KEY (id)
+)
+
+
+CREATE TABLE test.companies(
+id INT auto_increment,
+name char(70) NOT NULL,
+PRIMARY KEY (id)
+)
+
+UPDATE test.servers SET status=false where id=1
+
+UPDATE test.servers SET created_on="2020-05-05 18:00:00" where id=1

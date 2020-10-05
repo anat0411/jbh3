@@ -1,0 +1,6 @@
+tr.category {
+  display: inline-block;
+  border: 1px solid turquoise;
+  margin: 0.2rem;
+  font-weight: bold;
+}

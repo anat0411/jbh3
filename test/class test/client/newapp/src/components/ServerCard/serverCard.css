@@ -1,0 +1,15 @@
+.server-item {
+  width: 24%;
+  background-color: white;
+  box-shadow: 0 0 2px black;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.server-item ul {
+  list-style: none;
+  text-align: left;
+  font-size: 14px;
+  padding: 0;
+  margin: 10px 0 0;
+}

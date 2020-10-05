@@ -1,0 +1,29 @@
+header h1 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 30px;
+  margin: 0;
+  border-bottom: 2px solid black;
+}
+
+.sort-wrapper {
+  background: #efefef;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.server-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 30px;
+  box-sizing: border-box;
+}

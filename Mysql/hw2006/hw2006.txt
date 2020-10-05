@@ -1,0 +1,45 @@
+1. Customers orderd Apple products
+
+SELECT customers.name, AppleProducts.name, orders.customer_id FROM (SELECT * FROM newschema.products WHERE name LIKE 'Apple%') AS AppleProducts 
+
+INNER JOIN newschema.orders_products AS orders_products //Join Apple products with orders_products file
+ON AppleProducts.id = orders_products.product_id
+
+INNER JOIN newschema.orders AS orders //Join orders_products file with orders file
+ON orders_products.order_id=orders.id
+
+INNER JOIN newschema.customers AS customers //Join orders file with customers file
+ON orders.customer_id = customers.id
+
+2. Who orderd two computers?
+
+SELECT COUNT(*) AS HowManyComputersBought, customers.name FROM newschema.products AS products
+LEFT JOIN newschema.orders_products AS orders_products //Join all products with orders_products having products which purchased
+ON products.id=orders_products.product_id 
+LEFT JOIN newschema.orders AS orders //Join orders with orders_products 
+ON orders.id=orders_products.order_id
+LEFT JOIN newschema.customers AS customers //Join customers with their orders
+ON customers.id=orders.customer_id
+WHERE products.name IN ('Apple macbook pro', 'Asus laptop') //See which customer has one or two of computers names
+GROUP BY products.id
+HAVING HowManyComputersBought= 2
+
+3. How many products each customer purchased?
+
+SELECT COUNT(orders_products.product_id) AS SumOfProducts, orders.customer_id, customers.id AS customer_id, customers.name FROM newschema.customers AS customers
+LEFT JOIN newschema.orders AS orders //Brings all customers and connects them with their orders.id
+ON customers.id= orders.id
+LEFT JOIN newschema.orders_products AS orders_products //Join orders id's in orders & orders_products
+ON orders_products.order_id = orders.id
+GROUP BY customers.name
+
+4. What is the average purchase price?
+
+SELECT AVG (sumOrder) AS avgPrice FROM
+(SELECT SUM(products.price) AS sumOrder FROM newschema.orders_products AS orders_products
+INNER JOIN newschema.products AS products //Join products with the order to sum order by the product's price
+ON orders_products.product_id=products.id
+INNER JOIN newschema.orders AS orders //Join orders with orders_products to sum order  
+ON orders.id=orders_products.order_id
+GROUP BY orders.id)
+AS avgPrice

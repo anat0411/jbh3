@@ -1,0 +1,77 @@
+//Creating the games table
+CREATE TABLE third_test.games(
+id INT auto_increment,
+teamA char(70) NOT NULL,
+teamB char(70) NOT NULL,
+scoreA char(20) NOT NULL,
+scoreB char(20) NOT NULL,
+gameTime DATE NOT NULL,
+gameCategory char(70) NOT NULL,
+PRIMARY KEY (id)
+)
+
+//Creating the comments table
+CREATE TABLE third_test.comments(
+id INT auto_increment,
+commentText char(200) NOT NULL,
+commentOnGame INT,
+FOREIGN KEY (commentOnGame) REFERENCES third_test.games(id),
+commentTime Date NOT NULL,
+PRIMARY KEY (id)
+)
+
+//Creating teams table
+CREATE TABLE third_test.teams(
+id INT auto_increment,
+sport char(70) NOT NULL,
+teamName char(70) NOT NULL,
+country char(70) NOT NULL,
+city char(70) NOT NULL,
+PRIMARY KEY (id)
+)
+
+//Creating games
+INSERT INTO third_test.games(teamA,teamB,scoreA,scoreB,gameTime,gameCategory)
+VALUES ("Liverpool", "Chelsea", 2, 3, "2017-08-15","Football")
+
+INSERT INTO third_test.games(teamA,teamB,scoreA,scoreB,gameTime,gameCategory)
+VALUES ("Liverpool", "Real Madrid", 1, 0, "2017-08-15","Football")
+
+INSERT INTO third_test.games(teamA,teamB,scoreA,scoreB,gameTime,gameCategory)
+VALUES ("Liverpool", "FC Barcelona", 1, 0, "2010-03-15","Football")
+
+INSERT INTO third_test.games(teamA,teamB,scoreA,scoreB,gameTime,gameCategory)
+VALUES ("Real Madrid", "FC Barcelona", 1, 1, "2010-03-15","Football")
+
+INSERT INTO third_test.games(teamA,teamB,scoreA,scoreB,gameTime,gameCategory)
+VALUES ("Real Madrid", "Chelsea", 0, 3, "2013-10-15","Football")
+
+INSERT INTO third_test.games(teamA,teamB,scoreA,scoreB,gameTime,gameCategory)
+VALUES ("CSKA Moscow", "Maccabi Tel-Aviv", 80,65, "2018-10-15","Basketball")
+
+//Creating comments
+INSERT INTO third_test.comments (CommentOnGame , commentText,commentTime) VALUES (2,"Great game", "2020-06-06")
+
+INSERT INTO third_test.comments (commentOnGame, commentText ,commentTime) VALUES (4, 'Bad game', '2010-03-03')
+
+//Creating comment through server.js
+{
+    "data":[[2,"Loved It","2019-05-05"]]
+}
+
+CREATE TABLE test_3.manufacturers(
+id INT auto_increment,
+name char(70) NOT NULL,
+PRIMARY KEY (id)
+)
+
+CREATE TABLE test_3.products(
+id INT auto_increment,
+name char(70) NOT NULL,
+price INT NOT NULL,
+manufacturer INT NOT NULL,
+units INT NOT NULL,
+units_update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (manufacturer) REFERENCES test_3.manufacturers(id),
+PRIMARY KEY (id)
+)

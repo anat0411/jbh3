@@ -1,0 +1,29 @@
+1.
+//2nd oldest person
+SELECT id, first_name, date_of_birth FROM test_schema_1006.users
+WHERE date_of_birth
+ORDER BY date_of_birth LIMIT 1,2;
+//There are two names of the same age. by changing 2 to 1 it will give only one name
+
+2.
+//people from education field. email address ends with ".edu"
+SELECT id, first_name, email FROM test_schema_1006.users
+WHERE email LIKE '%.edu';
+
+3.
+//people who born on 2000
+SELECT id, first_name, date_of_birth FROM test_schema_1006.users
+WHERE date_of_birth LIKE 2000;
+
+4.
+//avg of people who holds phone num starts with "05"
+SELECT AVG(date_of_birth) FROM test_schema_1006.users
+WHERE phone LIKE '05%';
+
+5.
+//3 years most people were born in
+SELECT date_of_birth, COUNT(date_of_birth)
+FROM test_schema_1006.users 
+GROUP BY date_of_birth 
+ORDER BY  COUNT(date_of_birth) DESC
+LIMIT 3

@@ -1,0 +1,24 @@
+.description {
+  color: slategrey;
+  font-size: 13px;
+  line-height: 24px;
+  margin-top: 12px;
+  text-justify: inter-word;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans",
+    "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana,
+    "Verdana Ref", sans-serif;
+}
+
+.thumbnail:hover {
+  position: relative;
+  top: -25px;
+  left: -35px;
+  max-width: 520px !important;
+  height: auto;
+  display: block;
+  z-index: 999;
+}
+
+.img {
+  max-width: 400px;
+}

@@ -1,0 +1,8 @@
+{
+  "events": [
+    { "name": "Birthday", "date": "20.03.2020" },
+    { "name": "Graduation", "date": "10.11.2020" },
+    { "name": "Ceremony", "date": "02.02.2020" },
+    { "name": "Funural", "date": "22.09.2020" }
+  ]
+}
